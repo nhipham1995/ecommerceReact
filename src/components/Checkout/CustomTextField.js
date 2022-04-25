@@ -18,7 +18,7 @@ const FormInput = ({name, label, required}) => {
                 label={label}   
                 required= {required}
                 error={isError}
-
+                defaultValue=''
                 //we success to add input First Name
                 render = {({field})=> (
                   <TextField

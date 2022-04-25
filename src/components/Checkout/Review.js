@@ -2,6 +2,7 @@ import React from 'react'
 import { List, ListItem, ListItemText, Typography } from '@mui/material';
 
 const Review = ({checkoutToken}) => {
+  console.log()
   return (
     <>
       <Typography variant='h6' gutterBottom> Order Summary</Typography>

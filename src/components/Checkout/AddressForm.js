@@ -56,8 +56,6 @@ const AddressForm = ({commerce, checkoutToken, next}) => {
         <Typography variant='h6' gutterBottom>Shipping Address</Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit((data)=>{next(data, shippingCountry, shippingSubdivision, shippingOption)})}>
-          {/* <form onSubmit={methods.handleSubmit((data)=> console.log(...data))}> */}
-
               <Grid container spacing={1}  >
                 <Grid item xs={12} md={6} >
                   <FormInput required name='firstName' label='First Name' />
@@ -75,7 +73,7 @@ const AddressForm = ({commerce, checkoutToken, next}) => {
                   <FormInput required name='city' label='City'/>
                 </Grid>
                 <Grid item xs={12} md={6} >
-                  <FormInput required name='ZIP/ Postal Code' label='ZIP/ Postal Code'/>
+                  <FormInput required name='postalcode' label='ZIP/ Postal Code'/>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <InputLabel>Shipping Country</InputLabel>
