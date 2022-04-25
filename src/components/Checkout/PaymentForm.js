@@ -6,13 +6,12 @@ import { loadStripe } from '@stripe/stripe-js';
 import Review from './Review';
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 const PaymentForm = ({checkoutToken, backStep, nextStep, shippingData, onCaptureCheckout, timeout, test}) => {
-  const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY))
+  const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY));
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
     console.log('stripe: ', stripe);
     console.log('elements: ', elements);
-
     if (!stripe || !elements) return console.log("dont have stripe or elements");
 
     const cardElement = elements.getElement(CardElement);
@@ -30,10 +29,11 @@ const PaymentForm = ({checkoutToken, backStep, nextStep, shippingData, onCapture
         fulfillment: { shipping_method: shippingData.shippingOption },
         payment: {
           gateway: 'stripe',
+          id: paymentMethod.id,
           stripe: {
             payment_method_id: paymentMethod.id,
             id: paymentMethod.id,
-            stripe: paymentMethod.id
+            stripe: paymentMethod.id,
           },
         },
       };
